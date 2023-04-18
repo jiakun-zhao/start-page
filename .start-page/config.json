@@ -1,0 +1,32 @@
+{
+    "engines": [
+        {
+            "name": "百度",
+            "alias": "baidu",
+            "url": "https://www.baidu.com/s?wd={query}"
+        },
+        {
+            "name": "谷歌",
+            "alias": "google",
+            "url": "https://www.google.com/search?q={query}"
+        },
+        {
+            "name": "必应",
+            "alias": "bing",
+            "url": "https://cn.bing.com/search?q={query}"
+        },
+        {
+            "name": "GitHub",
+            "alias": "github",
+            "url": "https://github.com/search?q={query}"
+        }
+    ],
+    "bookmarks": [
+        {
+            "name": "GitHub",
+            "icon": "https://github.githubassets.com/favicons/favicon.svg",
+            "url": "https://github.com"
+        }
+    ],
+    "wallpapers": "a17e891be1ffac45a401903c863f1f22.jpg"
+}

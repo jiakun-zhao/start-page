@@ -1,0 +1,26 @@
+{
+    "name": "pkg-name",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vue-tsc --noEmit && vite build",
+        "dev": "vite",
+        "preview": "vite preview"
+    },
+    "eslintConfig": {
+        "extends": "@jiakun-zhao"
+    },
+    "dependencies": {
+        "vue": "^3.2.47"
+    },
+    "devDependencies": {
+        "@jiakun-zhao/eslint-config": "^0.0.5",
+        "@types/node": "^18.15.11",
+        "@vitejs/plugin-vue": "^4.1.0",
+        "eslint": "^8.38.0",
+        "typescript": "~5.0.4",
+        "unocss": "^0.51.4",
+        "vite": "^4.2.2",
+        "vue-tsc": "^1.2.0"
+    }
+}
