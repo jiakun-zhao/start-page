@@ -23,9 +23,9 @@
     ],
     "bookmarks": [
         {
-            "name": "GitHub",
-            "icon": "https://github.githubassets.com/favicons/favicon.svg",
-            "url": "https://github.com"
+            "name": "Source Code",
+            "icon": "https://github.githubassets.com/favicons/favicon-dark.svg",
+            "url": "https://github.com/jiakun-zhao/start-page"
         }
     ],
     "wallpaper": "e6b22bc7b42a9dc733dddbcd793744c7.jpg"

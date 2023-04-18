@@ -13,6 +13,8 @@
     "devDependencies": {
         "@jiakun-zhao/eslint-config": "^0.0.5",
         "@types/node": "^18.15.11",
+        "autoprefixer": "^10.4.14",
+        "cssnano": "^6.0.0",
         "eslint": "^8.38.0",
         "sass": "^1.62.0",
         "typescript": "~5.0.4",
