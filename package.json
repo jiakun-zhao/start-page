@@ -1,5 +1,6 @@
 {
     "private": true,
+    "version": "1.0.1",
     "type": "module",
     "scripts": {
         "build": "vite build",
@@ -13,8 +14,8 @@
         "@jiakun-zhao/eslint-config": "^0.0.5",
         "@types/node": "^18.15.11",
         "eslint": "^8.38.0",
+        "sass": "^1.62.0",
         "typescript": "~5.0.4",
-        "unocss": "^0.51.4",
         "vite": "^4.2.2"
     }
 }

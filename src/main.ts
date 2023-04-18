@@ -1,12 +1,53 @@
-import 'uno.css'
+import './style.scss'
+import { $, $display, $new, getConfig, getSugUl } from './$'
 
-const jsdelivr = 'https://cdn.jsdelivr.net/gh'
-const folder = '.start-page'
-const root = location.pathname === '/'
-    ? 'jiakun-zhao/start-page'
-    : location.pathname.slice(1)
+(async function () {
+    const { bookmarks, wallpaper, engines } = await getConfig('v1.0.1')
 
-const config = await fetch(`${jsdelivr}/${root}@latest/${folder}/config.json`).then(res => res.json())
-const wallpaper = `${jsdelivr}/${root}@latest/${folder}/${config.wallpaper}`
+    const header = $('header')!
+    const input = $('input')!
+    const hr = $('hr')!
+    const ul = $('ul')!
 
-console.log(config, wallpaper)
+    $('img')!.src = wallpaper
+
+    bookmarks.slice(0, 8).forEach((i) => {
+        const a = $new('a')
+        a.href = i.url
+        a.title = i.name
+        a.setAttribute('style', `--icon: url(${i.icon})`)
+        header.appendChild(a)
+    })
+
+    input.focus()
+    input.addEventListener('input', async () => {
+        const val = input.value
+        const idx = val.indexOf(' ')
+        const hit = engines.find(i => i.alias === val.slice(0, idx))
+        const word = hit ? val.slice(idx) : val
+
+        ul.innerHTML = await getSugUl(hit ?? engines[0], word)
+        ul.firstElementChild?.setAttribute('data-current', 'true')
+        $display(hr, !!ul.innerHTML)
+    })
+
+    const liCurrentSwitch: Record<string, ((nowCurrent: Element | null) => Element | null)> = {
+        ArrowDown: nowCurrent => nowCurrent?.nextElementSibling ?? ul.firstElementChild,
+        ArrowUp: nowCurrent => nowCurrent?.previousElementSibling ?? ul.lastElementChild,
+    }
+
+    input?.addEventListener('keydown', (e) => {
+        const nowCurrent = ul.querySelector('[data-current]')
+        if (Object.hasOwn(liCurrentSwitch, e.key)) {
+            const nextCurrent = liCurrentSwitch[e.key](nowCurrent)
+            nowCurrent?.removeAttribute('data-current')
+            nextCurrent?.setAttribute('data-current', 'true')
+            e.preventDefault()
+        } else if (e.key === 'Enter') {
+            if (!input.value)
+                return
+            location.href = nowCurrent?.firstElementChild?.getAttribute('href')
+            ?? engines[0].url.replace('{query}', encodeURI(input.value))
+        }
+    })
+})().catch(console.error)

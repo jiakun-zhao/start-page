@@ -2,12 +2,12 @@
     "engines": [
         {
             "name": "百度",
-            "alias": "baidu",
+            "alias": "bd",
             "url": "https://www.baidu.com/s?wd={query}"
         },
         {
             "name": "谷歌",
-            "alias": "google",
+            "alias": "gg",
             "url": "https://www.google.com/search?q={query}"
         },
         {
@@ -17,7 +17,7 @@
         },
         {
             "name": "GitHub",
-            "alias": "github",
+            "alias": "gh",
             "url": "https://github.com/search?q={query}"
         }
     ],
