@@ -2,7 +2,7 @@ import './style.scss'
 import { $, $display, $new, getConfig, getSugUl } from './utils'
 
 (async function () {
-    const { bookmarks, wallpaper, engines } = await getConfig('v1.0.6')
+    const { bookmarks, wallpaper, engines } = await getConfig()
 
     const header = $('header')!
     const form = $('form')!

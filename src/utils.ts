@@ -6,21 +6,20 @@ export const $display = (el: HTMLElement, display: boolean) => el.style.display 
 
 type Config = typeof defaultConfig
 
-export async function getConfig(tag = 'latest') {
-    let config: Config
-    try {
-        const repo = location.pathname.slice(1) || `jiakun-zhao/start-page@${tag}`
-        const url = `https://cdn.jsdelivr.net/gh/${repo}/.start-page.json`
-        config = await fetch(url).then(res => res.json())
-    } catch {
-        config = defaultConfig
-    }
+export async function getConfig() {
+    const repo = location.pathname.slice(1)
+    const config: Config = repo
+        ? await fetch(`https://cdn.jsdelivr.net/gh/${repo}/.start-page.json`)
+            .then(res => res.json())
+            .catch(() => defaultConfig)
+        : defaultConfig
     const params = new URLSearchParams(location.search)
-    config.wallpaper = params.get('wallpaper') || config.wallpaper
-    const engines = config.engines
-    const index = engines.findIndex(i => i.name === params.get('engine'))
-    if (index > 0)
-        config.engines = [engines[index], ...engines.slice(0, index), ...engines.slice(index + 1)]
+    const wallpaper = params.get('wallpaper')
+    if (wallpaper)
+        config.wallpaper = wallpaper
+    const engine = config.engines.find(i => i.name === params.get('engine'))
+    if (engine)
+        config.engines = [engine, ...config.engines.filter(i => i.name !== engine.name)]
     return config
 }
 
