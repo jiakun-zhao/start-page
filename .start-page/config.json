@@ -23,10 +23,15 @@
     ],
     "bookmarks": [
         {
+            "name": "Author",
+            "icon": "https://start.zhaojiakun.com/favicon.svg",
+            "url": "https://zhaojiakun.com"
+        },
+        {
             "name": "Source Code",
-            "icon": "https://github.githubassets.com/favicons/favicon-dark.svg",
+            "icon": "https://static.zhaojiakun.com/github/favicon-dark.svg",
             "url": "https://github.com/jiakun-zhao/start-page"
         }
     ],
-    "wallpaper": "e6b22bc7b42a9dc733dddbcd793744c7.jpg"
+    "wallpaper": "https://static.zhaojiakun.com/start-page/e6b22bc7b42a9dc733dddbcd793744c7.jpg"
 }
