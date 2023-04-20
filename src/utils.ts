@@ -1,4 +1,4 @@
-import defaultConfig from '../.start-page/config.json'
+import defaultConfig from '../.start-page.json'
 
 export const $: Document['querySelector'] = (selectors: any) => document.querySelector(selectors)
 export const $new: Document['createElement'] = (tagName: any) => document.createElement(tagName)
@@ -7,16 +7,21 @@ export const $display = (el: HTMLElement, display: boolean) => el.style.display 
 type Config = typeof defaultConfig
 
 export async function getConfig(tag = 'latest') {
+    let config: Config
     try {
         const repo = location.pathname.slice(1) || `jiakun-zhao/start-page@${tag}`
-        const root = `https://cdn.jsdelivr.net/gh/${repo}/.start-page`
-        const config: Config = await fetch(`${root}/config.json`).then(res => res.json())
-        if (!config.wallpaper.startsWith('http'))
-            config.wallpaper = `${root}/${config.wallpaper}`
-        return config
+        const root = `https://cdn.jsdelivr.net/gh/${repo}/.start-page.json`
+        config = await fetch(`${root}/config.json`).then(res => res.json())
     } catch {
-        return defaultConfig
+        config = defaultConfig
     }
+    const params = new URLSearchParams(location.search)
+    config.wallpaper = params.get('wallpaper') || config.wallpaper
+    const engines = config.engines
+    const index = engines.findIndex(i => i.name === params.get('engine'))
+    if (index > 0)
+        config.engines = [engines[index], ...engines.slice(0, index), ...engines.slice(index + 1)]
+    return config
 }
 
 export async function getSugUl(engine: Config['engines'][0], word: string): Promise<string> {

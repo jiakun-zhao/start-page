@@ -1,8 +1,8 @@
 import './style.scss'
-import { $, $display, $new, getConfig, getSugUl } from './$'
+import { $, $display, $new, getConfig, getSugUl } from './utils'
 
 (async function () {
-    const { bookmarks, wallpaper, engines } = await getConfig('v1.0.4')
+    const { bookmarks, wallpaper, engines } = await getConfig('v1.0.5')
 
     const header = $('header')!
     const form = $('form')!
