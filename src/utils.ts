@@ -10,8 +10,8 @@ export async function getConfig(tag = 'latest') {
     let config: Config
     try {
         const repo = location.pathname.slice(1) || `jiakun-zhao/start-page@${tag}`
-        const root = `https://cdn.jsdelivr.net/gh/${repo}/.start-page.json`
-        config = await fetch(`${root}/config.json`).then(res => res.json())
+        const url = `https://cdn.jsdelivr.net/gh/${repo}/.start-page.json`
+        config = await fetch(url).then(res => res.json())
     } catch {
         config = defaultConfig
     }
