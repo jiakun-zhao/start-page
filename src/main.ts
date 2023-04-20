@@ -2,9 +2,10 @@ import './style.scss'
 import { $, $display, $new, getConfig, getSugUl } from './$'
 
 (async function () {
-    const { bookmarks, wallpaper, engines } = await getConfig('v1.0.3')
+    const { bookmarks, wallpaper, engines } = await getConfig('v1.0.4')
 
     const header = $('header')!
+    const form = $('form')!
     const input = $('input')!
     const hr = $('hr')!
     const ul = $('ul')!
@@ -36,18 +37,22 @@ import { $, $display, $new, getConfig, getSugUl } from './$'
         ArrowUp: nowCurrent => nowCurrent?.previousElementSibling ?? ul.lastElementChild,
     }
 
-    input?.addEventListener('keydown', (e) => {
-        const nowCurrent = ul.querySelector('[data-current]')
+    input.addEventListener('keydown', (e) => {
         if (Object.hasOwn(liCurrentSwitch, e.key)) {
+            const nowCurrent = ul.querySelector('[data-current]')
             const nextCurrent = liCurrentSwitch[e.key](nowCurrent)
             nowCurrent?.removeAttribute('data-current')
             nextCurrent?.setAttribute('data-current', 'true')
             e.preventDefault()
-        } else if (e.key === 'Enter') {
-            if (!input.value)
-                return
-            location.href = nowCurrent?.firstElementChild?.getAttribute('href')
-            ?? engines[0].url.replace('{query}', encodeURI(input.value))
         }
+    })
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        if (!input.value)
+            return
+        const nowCurrent = ul.querySelector('[data-current]')
+        location.href = nowCurrent?.firstElementChild?.getAttribute('href')
+            ?? engines[0].url.replace('{query}', encodeURI(input.value))
     })
 })().catch(console.error)
