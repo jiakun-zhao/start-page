@@ -1,23 +1,23 @@
 {
-    "private": true,
-    "version": "1.0.1",
-    "type": "module",
-    "scripts": {
-        "build": "vite build",
-        "dev": "vite",
-        "preview": "vite preview"
-    },
-    "eslintConfig": {
-        "extends": "@jiakun-zhao"
-    },
-    "devDependencies": {
-        "@jiakun-zhao/eslint-config": "^0.0.5",
-        "@types/node": "^18.15.11",
-        "autoprefixer": "^10.4.14",
-        "cssnano": "^6.0.0",
-        "eslint": "^8.38.0",
-        "sass": "^1.62.0",
-        "typescript": "~5.0.4",
-        "vite": "^4.2.2"
-    }
+  "type": "module",
+  "version": "1.0.1",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@jiakun-zhao/eslint-config": "^0.0.11",
+    "@types/node": "^20.2.3",
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.41.0",
+    "sass": "^1.62.1",
+    "typescript": "~5.0.4",
+    "vite": "^4.3.8"
+  },
+  "eslintConfig": {
+    "extends": "@jiakun-zhao"
+  }
 }

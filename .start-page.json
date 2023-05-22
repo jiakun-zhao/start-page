@@ -1,37 +1,37 @@
 {
-    "engines": [
-        {
-            "name": "百度",
-            "alias": "bd",
-            "url": "https://www.baidu.com/s?wd={query}"
-        },
-        {
-            "name": "谷歌",
-            "alias": "gg",
-            "url": "https://www.google.com/search?q={query}"
-        },
-        {
-            "name": "必应",
-            "alias": "bing",
-            "url": "https://cn.bing.com/search?q={query}"
-        },
-        {
-            "name": "GitHub",
-            "alias": "gh",
-            "url": "https://github.com/search?q={query}"
-        }
-    ],
-    "bookmarks": [
-        {
-            "name": "Author",
-            "icon": "https://start.zhaojiakun.com/favicon.svg",
-            "url": "https://zhaojiakun.com"
-        },
-        {
-            "name": "Source Code",
-            "icon": "https://start.zhaojiakun.com/github-dark.svg",
-            "url": "https://github.com/jiakun-zhao/start-page"
-        }
-    ],
-    "wallpaper": "https://zhaojiakun.com/assets/projects/start-page-default-wallpaper.jpg"
+  "engines": [
+    {
+      "name": "百度",
+      "alias": "bd",
+      "url": "https://www.baidu.com/s?wd={query}"
+    },
+    {
+      "name": "谷歌",
+      "alias": "gg",
+      "url": "https://www.google.com/search?q={query}"
+    },
+    {
+      "name": "必应",
+      "alias": "bing",
+      "url": "https://cn.bing.com/search?q={query}"
+    },
+    {
+      "name": "GitHub",
+      "alias": "gh",
+      "url": "https://github.com/search?q={query}"
+    }
+  ],
+  "bookmarks": [
+    {
+      "name": "Info",
+      "icon": "https://start.zhaojiakun.com/favicon.svg",
+      "url": "https://zhaojiakun.com/post/start-page"
+    },
+    {
+      "name": "Source Code",
+      "icon": "https://start.zhaojiakun.com/github-dark.svg",
+      "url": "https://github.com/jiakun-zhao/start-page"
+    }
+  ],
+  "wallpaper": "https://images.unsplash.com/photo-1481151500463-1fa2dd2d5dbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2851&q=80"
 }
