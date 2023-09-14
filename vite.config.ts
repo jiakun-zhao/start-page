@@ -1,12 +1,9 @@
 import { defineConfig } from 'vite'
 
-import autoprefixer from 'autoprefixer'
-import cssnano from 'cssnano'
+import Minifier from '@jiakun-zhao/vite-minifier'
 
 export default defineConfig({
-  css: {
-    postcss: {
-      plugins: [autoprefixer, cssnano({ preset: 'default' })],
-    },
-  },
+  plugins: [
+    Minifier(),
+  ],
 })

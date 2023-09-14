@@ -1,3 +1,3 @@
 declare interface Window {
-    baiduCallback: (e:any) => void
+  baiduCallback: (e: any) => void
 }
